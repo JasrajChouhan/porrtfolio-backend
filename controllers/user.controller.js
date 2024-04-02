@@ -7,7 +7,7 @@ import dotenv from 'dotenv'
 import transporter from "../mail/mail.config.js";
 dotenv.config();
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 
 
 export const signUp = catcheAsync(async (req, res, next) => {
@@ -235,8 +235,8 @@ export const resetPassword = async (req, res) => {
         }
 
         // Hash the new password
-        const salt = await bcrypt.genSalt(10);
-        req.body.password = await bcrypt.hash(req.body.password, salt);
+        const salt = await bcryptjs.genSalt(10);
+        req.body.password = await bcryptjs.hash(req.body.password, salt);
 
         // Update user's password, clear reset token and expiration time
         user.password = req.body.password;
