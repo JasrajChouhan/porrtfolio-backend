@@ -5,8 +5,8 @@ import isAuthorized from '../middlewares/auth.middleware.js'
 const router = express.Router();
 
 
-router.get('/' , isAuthorized ,  allBlogs);
-router.post('/' , isAuthorized , postBlog);
-router.get('/:id' ,isAuthorized ,  getOneBlog);
+router.get('/'  ,  allBlogs);
+router.post('/'  , postBlog);
+router.get('/:id'  ,  getOneBlog);
 
 export default router;

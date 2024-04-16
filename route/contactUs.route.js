@@ -4,6 +4,6 @@ import isAuthorized from '../middlewares/auth.middleware.js'
 
 const router = express.Router();
 
-router.post('/', isAuthorized , getInfoOfRecuriter)
+router.post('/' , getInfoOfRecuriter)
 
 export default router;
